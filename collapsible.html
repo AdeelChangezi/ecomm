@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /*.collapsible{
+            max-width: 450px;
+        }
+         .collapsible-content{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        .collapsible #head:checked ~ .collapsible-content{
+            visibility: visible;
+            transform: translateX(0px);
+            opacity: 1;
+            transition: all 0.2s linear;
+        }
+        .collapsible #head:checked ~ img{
+            transform: rotate(90deg);
+            transition: all 0.3s linear;
+        } */
+
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 400px;
+}
+input{
+    display: none;
+}
+        .content1, .content2, .content3{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 4.5%;
+            left: 25%;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        .content1{ background-color: yellow; }
+        .content2{ background-color: red; }
+        .content3{ background-color: aqua; }
+
+        .main1 #one:checked ~ .content1,
+        .main2 #second:checked ~ .content2,
+        .main3 #third:checked ~ .content3 {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0px);
+            transition: all 0.5s linear;
+        }
+
+        .main1 #one:checked ~  label,
+        .main2 #second:checked ~  label,
+        .main3 #third:checked ~  label{
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="container">
+            <div class="main1">
+                <input type="checkbox" name="one" id="one">
+                <label for="one" onclick="func1()">Skills</label>
+                <div class="content1"></div>
+            </div>
+            
+            <div class="main2">
+                <input type="checkbox" name="second" id="second">
+                <label for="second" onclick="func2()">Experience</label>
+                <div class="content2"></div>
+            </div>
+
+            <div class="main3">
+                <input type="checkbox" name="third" id="third">
+                <label for="third" onclick="func3()">Education</label>
+                <div class="content3"></div>
+            </div>
+        </div>
+
+    <script>
+        const check1 = document.getElementById("one");
+        const check2 = document.getElementById("second");
+        const check3 = document.getElementById("third");
+        
+        check1.checked = false;
+        check2.checked = false;
+        check3.checked = false;
+
+        function func1(){
+            check2.checked = false;
+            check3.checked = false;
+        }
+
+        function func2(){
+            check1.checked = false;
+            check3.checked = false;
+        }
+        function func3(){
+            check2.checked = false;
+            check1.checked = false;
+        }
+    </script>
+</body>
+</html>
